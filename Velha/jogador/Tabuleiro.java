@@ -1,8 +1,10 @@
 package jogador;
+import java.util.Arrays;
 
 public class Tabuleiro implements Cloneable
 {
     private Marca matriz [][] = new Marca [3][3];
+    //Matriz 3x3 com todas as casad inicialmente valendo null
 
     // cria um tabuleiro vazio
     public Tabuleiro ()
@@ -24,6 +26,7 @@ public class Tabuleiro implements Cloneable
         validar (lin, col);
 
         return this.matriz[lin][col] != null;
+        //retorna true se a casa não estiver null, e false se está vazia
     }
 
     // retorna a marca da posicao informada
@@ -32,6 +35,7 @@ public class Tabuleiro implements Cloneable
         validar (lin, col);
 
         return this.matriz[lin][col];
+        //
     }
 
     // coloca a marca na posicao informada
@@ -107,19 +111,11 @@ public class Tabuleiro implements Cloneable
     }
 
     // calcula o hashcode a partir de todas as posicoes
-    @Override
+   @Override
     public int hashCode ()
     {
-        int ret = 666;
-
-        for (int lin = 0; lin < 3; lin++)
-            for (int col = 0; col < 3; col++)
-                ret = 7 * ret + (this.matriz[lin][col] == null ? 0 : this.matriz[lin][col].hashCode());
-
-        if (ret < 0)
-            ret = -ret;
-
-        return ret;
+        return Arrays.deepHashCode(this.matriz);
+        //deepHashCode percorre a matriz e calcula o hash de cada elemento
     }
 
     // copia as marcas do tabuleiro modelo
