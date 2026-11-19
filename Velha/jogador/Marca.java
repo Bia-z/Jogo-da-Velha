@@ -48,13 +48,6 @@ public class Marca
     @Override
     public int hashCode ()
     {
-        int ret = 666;
-
-        ret = 7 * ret + Character.valueOf(this.simbolo).hashCode();
-
-        if (ret < 0)
-            ret = -ret;
-
-        return ret;
+        return this.simbolo;
     }
 }
