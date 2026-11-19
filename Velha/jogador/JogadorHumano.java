@@ -7,8 +7,8 @@ public class JogadorHumano implements Jogador
     private Marca          marca     = null;
     private Tabuleiro      tabDoJogo = null;
     private BufferedReader teclado   = new BufferedReader
-                                        (new InputStreamReader
-                                        (System.in));
+            (new InputStreamReader
+                    (System.in));
 
     // guarda o tabuleiro e pede ao usuario que escolha a marca
     public JogadorHumano (Tabuleiro tab) throws Exception

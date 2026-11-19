@@ -4,16 +4,16 @@ public class JogadorAutomatico implements Jogador
 {
     // define as 8 linhas possiveis de vitoria (3 linhas, 3 colunas e 2 diagonais)
     private static final int[][][] LINHAS =
-    {
-        {{0,0},{0,1},{0,2}},
-        {{1,0},{1,1},{1,2}},
-        {{2,0},{2,1},{2,2}},
-        {{0,0},{1,0},{2,0}},
-        {{0,1},{1,1},{2,1}},
-        {{0,2},{1,2},{2,2}},
-        {{0,0},{1,1},{2,2}},
-        {{0,2},{1,1},{2,0}}
-    };
+            {
+                    {{0,0},{0,1},{0,2}},
+                    {{1,0},{1,1},{1,2}},
+                    {{2,0},{2,1},{2,2}},
+                    {{0,0},{1,0},{2,0}},
+                    {{0,1},{1,1},{2,1}},
+                    {{0,2},{1,2},{2,2}},
+                    {{0,0},{1,1},{2,2}},
+                    {{0,2},{1,1},{2,0}}
+            };
 
     private Marca     marca     = null;
     private Tabuleiro tabDoJogo = null;
@@ -73,8 +73,8 @@ public class JogadorAutomatico implements Jogador
                     primeiraLivre = pos;
             }
             else
-                if (tabDoJogo.getMarcaNaPosicao(pos[0], pos[1]).equals(alvo))
-                    marcas++;
+            if (tabDoJogo.getMarcaNaPosicao(pos[0], pos[1]).equals(alvo))
+                marcas++;
         }
 
         if (marcas == qtdMarcas && livres == qtdLivres)

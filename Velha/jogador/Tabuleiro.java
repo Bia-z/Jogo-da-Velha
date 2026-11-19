@@ -42,6 +42,9 @@ public class Tabuleiro implements Cloneable
         if (mrc == null)
             throw new Exception ("Marca ausente");
 
+        if (this.matriz[lin][col] != null)
+            throw new Exception ("Posicao ja ocupada");
+
         this.matriz[lin][col] = mrc;
     }
 
@@ -96,8 +99,8 @@ public class Tabuleiro implements Cloneable
                         return false;
                 }
                 else
-                    if (!this.matriz[lin][col].equals(outro.matriz[lin][col]))
-                        return false;
+                if (!this.matriz[lin][col].equals(outro.matriz[lin][col]))
+                    return false;
             }
 
         return true;

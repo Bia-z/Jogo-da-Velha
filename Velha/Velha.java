@@ -25,15 +25,15 @@ public class Velha
                 {
                     jogadorH = new JogadorHumano (tabDoJogo);
                     jogadorA = new JogadorAutomatico
-                              (tabDoJogo,
-                               new Marca(jogadorH.getMarca().getSimbolo()=='X'?'O':'X'));
+                            (tabDoJogo,
+                                    new Marca(jogadorH.getMarca().getSimbolo()=='X'?'O':'X'));
                 }
                 else
                 {
                     jogadorA = new JogadorAutomatico (tabDoJogo);
                     jogadorH = new JogadorHumano
-                              (tabDoJogo,
-                               new Marca(jogadorA.getMarca().getSimbolo()=='X'?'O':'X'));
+                            (tabDoJogo,
+                                    new Marca(jogadorA.getMarca().getSimbolo()=='X'?'O':'X'));
                 }
 
                 analista = new AnalistaSituacional (tabDoJogo);
@@ -54,19 +54,21 @@ public class Velha
                 }
                 while (!analista.fimDeJogo());
 
-                if (analista.getMarcaDoVencedor().equals(jogadorH.getMarca()))
+                Marca vencedor = analista.getMarcaDoVencedor();
+
+                if (vencedor != null && vencedor.equals(jogadorH.getMarca()))
                     jogadorH.vcGanhou ();
                 else
-                    if (analista.getMarcaDoVencedor().equals(jogadorA.getMarca()))
-                        jogadorH.vcPerdeu ();
-                    else
-                        jogadorH.deuVelha ();
+                if (vencedor != null && vencedor.equals(jogadorA.getMarca()))
+                    jogadorH.vcPerdeu ();
+                else
+                    jogadorH.deuVelha ();
 
                 jogadorHumanoComeca = !jogadorHumanoComeca;
             }
             catch (Exception e)
             {}
         }
-        while (jogadorH.querMaisUmaPartida());
+        while (jogadorH != null && jogadorH.querMaisUmaPartida());
     }
 }
