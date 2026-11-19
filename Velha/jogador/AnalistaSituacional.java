@@ -31,7 +31,7 @@ public class AnalistaSituacional
     {
         try
         {
-            for (int[][] linha : LINHAS)
+            for (int[][] linha : LINHAS) // percorre LINHAS pegando uma linha por vez
             {
                 Marca a = tabDoJogo.getMarcaNaPosicao(linha[0][0], linha[0][1]);
                 Marca b = tabDoJogo.getMarcaNaPosicao(linha[1][0], linha[1][1]);
